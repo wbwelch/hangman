@@ -19,53 +19,54 @@ function hangmanGame() {
 
 	
 	gameWord = answers[Math.floor(Math.random() * answers.length)];	
+		console.log(gameWord)
 
 	
-	for (i = 0; i <= gameWord.length; i++) {
+	for (i = 0; i < gameWord.length; i++) {
+		//console.log(gameWord[i]);
 		var letterBox = $("<div>");
 		letterBox.addClass("letter-box");
-		$("answer-revealed").append(letterBox);
+		letterBox.text(" ");
+		$("#answer-reveal").append(letterBox);
 	}
-		//console.log(gameWord.length)
+		console.log(gameWord.length)
 
 
 	
 	$(document).keypress(function(e) {
     var userGuess = String.fromCharCode(e.which);
-	for (k = 0; k <= gameWord.length; k++) {
+		for (k = 0; k <= gameWord.length; k++) {
 			//console.log(userGuess)
 		if (userGuess.match(gameWord[k])){
-				var letterBtn = $("<button>");
-				letterBtn.addClass("letters");
+				var letterBtn = $("<div class='letters'></div>");
 				letterBtn.attr("data-letter"), gameWord[k];
 				letterBtn.text(gameWord[k]);
-				$("answer-reveal").append(letterBtn);
+				$("#answer-reveal").append(letterBtn);
 			}
 		else  if (userGuess !== gameWord[k]) {
 				letterBtn2 = $("<button>");
 				letterBtn2.addClass("letters");
 				letterBtn2.attr("data-letter"), gameWord[k];
 				letterBtn2.text(gameWord[k]);;
-				$("used-letters").append(letterBtn2);
+				$("#used-letters").append(letterBtn2);
 
 			}
-	}
-
+		}
 	});
+
+	
 	
 	
 	var wins = 0
 	//for each win, wins++
-	$("wins-display").html(wins);
+	$("wins-display").text(wins);
 	//console.log(wins);
- }
+ };
  
 		
 		
-	//loop until word value == user var value
+	//loop until word value == user var value, then reset
 		//	for gameWord(k = 0; k < gameword.length; k++) {
-
-	
 
 
 $(document).keydown(hangmanGame)
