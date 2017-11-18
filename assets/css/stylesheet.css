@@ -1,3 +1,161 @@
 @charset "utf-8";
 /* CSS Document */
+/* 
+========================================
+  Custom Styles
+========================================
+*/
+html {
+  height: 100%;
+}
+body {
+	background-image: url("../images/dust_scratches.png");
+	background-size: 100%;
+	min-height: 100%;
+	width: 100%;
+	position: absolute;
+	height: auto;
+}
+/*
+ ========================================
+  Typogrophy
+ ========================================
+*/
+h1 {
+	font: 400 22px/26px  Times, "Times New Roman", serif;
+}
+h2 {
+	font: 700 20px/24px  Times, "Times New Roman", serif;
+}
+h3 {
+	font: 300 18px/24px  Times, "Times New Roman", serif;
+}
+h1,
+h2,
+h3 {
+	color: #4d4848;
+}
+p {
+	font: 300 16px/20px 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	color: #4d4848;
+	padding: 10px 5px;
+	line-height: 150%;
+}
+/*
+ ========================================
+  Grid
+  ========================================
+*/
 
+#header-image {
+	width: 960px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid;
+	border-color: #4d4848;
+}
+#primary-box {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: 960px;
+	background: #fff;
+	padding: 10px;
+	border: solid;
+	border-color: #4d4848
+}
+#game-image-div {
+	width: 45%;
+	height: auto;
+	float: left;
+	padding: 5px;
+	border: none;
+	background: white;
+}
+#game-container {
+	width: 45%;
+	float: left;
+	padding: 5px;
+	border-width: 1px;
+	background: white;
+}
+.game-photo {
+	display: block;
+	margin: 5px auto;
+	width: 200px;
+	}
+ .letters {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+  }
+/*
+ ========================================
+  Clearfix
+  ========================================
+*/
+.game-photo:before,
+.game-photo:after {
+	content: "";
+	display: table;
+}
+.game-photo:after {
+	clear: both;
+}
+.game-photo {
+	clear: both;
+	zoom: *1;
+}
+/*
+ ========================================
+  Media Queries
+  ========================================
+*/
+
+@media screen and (max-width: 1300px) {
+	body {
+		width: 100%;
+	}
+	#header-image {
+		width: 960px;
+		height: auto;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	
+	}
+	#game-image-div {
+		width: 50%;
+	}
+
+	#game-container {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 980px) {
+	body {
+		width: 100%;
+	}
+	#header-image {
+		width: 100%;
+		height: auto;
+	
+	}
+	#game-image-div {
+		width: 50%;
+		display: inline-block;
+	}
+	#game-container {
+		width: 50%;
+		display: inline-block;
+	}
+	.game-photo {
+		width: 100%;
+	}
+
+}

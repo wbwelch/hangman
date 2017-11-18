@@ -4,12 +4,34 @@
 <meta charset="utf-8">
 <title>Hangman, Horror Edition</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/css.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/javascript.js"></script>
-
+ 
 </head>
 
 <body>
+	<img id="header-image" src="assets/images/headerimage.jpg" alt="Hangman Horror Edition header with blood splatter and a silhouette of a hand holding a knife.">
+	
+	<div class="primary-box">
+		
+		<div id="game-image-div">
+			<div class="game-photo">
+				<img class="game-photo" src="assets/images/game-photos/noose.jpg" alt="Noose in front of dark background.">
+			</div>
+		</div>
+		
+			
+		<div id="game-container">
+			<h1>Press any ket to get started!</h1>
+			<h2>WINS: </h2>
+			<div id="answer-reveal"></div>
+			<h3>Number of Guesses Remaining: </h3>
+			<h3>Letters already guessed:</h3>
+			<div id="used-letters"></div>
+		</div>
+	
+	</div>
 </body>
 </html>
