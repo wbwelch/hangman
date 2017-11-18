@@ -34,6 +34,7 @@ h1,
 h2,
 h3 {
 	color: #4d4848;
+	text-align: center;
 }
 p {
 	font: 300 16px/20px 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
@@ -49,37 +50,40 @@ p {
 
 #header-image {
 	width: 960px;
+	position: relative;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 10px;
 	border: solid;
 	border-color: #4d4848;
 }
 #primary-box {
+	width: 960px;
 	display: block;
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	height: auto;
-	width: 960px;
+	margin-bottom: 10ox;
+	height: 600px;
 	background: #fff;
-	padding: 10px;
 	border: solid;
-	border-color: #4d4848
+	border-color: #4d4848;
 }
 #game-image-div {
 	width: 45%;
 	height: auto;
-	float: left;
-	padding: 5px;
-	border: none;
-	background: white;
+	position: absolute;
+	left: 0;
+	padding: 2px;
 }
 #game-container {
 	width: 45%;
 	float: left;
-	padding: 5px;
+	padding: 2px;
+	position: absolute;
+	right: 0;
 	border-width: 1px;
-	background: white;
 }
 .game-photo {
 	display: block;
@@ -100,14 +104,18 @@ p {
   ========================================
 */
 .game-photo:before,
-.game-photo:after {
+.game-photo:after,
+.letters:before,
+.letters:after {
 	content: "";
 	display: table;
 }
-.game-photo:after {
+.game-photo:after,
+.letters:after {
 	clear: both;
 }
-.game-photo {
+.game-photo,
+.letters {
 	clear: both;
 	zoom: *1;
 }
@@ -117,26 +125,6 @@ p {
   ========================================
 */
 
-@media screen and (max-width: 1300px) {
-	body {
-		width: 100%;
-	}
-	#header-image {
-		width: 960px;
-		height: auto;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	
-	}
-	#game-image-div {
-		width: 50%;
-	}
-
-	#game-container {
-		width: 50%;
-	}
-}
 @media screen and (max-width: 980px) {
 	body {
 		width: 100%;
