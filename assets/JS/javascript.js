@@ -48,24 +48,30 @@ $(document).ready(function() {
 
 		var userG = hangmanGame.userGuesses
 		
+		
 		document.onkeypress = function(keyPressed) {
 			var keyPressed = keyPressed || window.event;
 			charCode = keyPressed.keyCode || keyPressed.which;
 			lettersGuessed = String.fromCharCode(charCode);
 		
-			console.log(lettersGuessed)};
+		
+			console.log(lettersGuessed)
 			//loop through letters to verify entry is in letter array
 			document.onkeydown = function(input) {
-				for (i = 0; i < hangmanGame.userGuesses.length; i++) {
-					if (lettersGuessed == hangmanGame.userGuesses[i]) {
-						console.log("hi");//not working, once returns false, moves on; 		how do I get it to cycle every index in array and look for 		any match?
-						//continue
-					} else if (lettersGuessed !== i){
-						console.log("Nope");
+				for (i = 0; i < hangmanGame.letters.length - 1; i++) {
+					if (lettersGuessed === hangmanGame.letters[i]) {
+						console.log("hi");//how do I make this return true
+						//want to move 'push to user array' here
+					
+					} 
+					else {
+						$("#append-message").remove();
+						$("#message-box").append("<p id='append-message'>" + hangmanGame.messages.character + "</p>");
 						//display character message
 					};
 				};
 			};
+		};
 			
 		document.onkeyup = function(input) {
 			var userInput = (input.key).toLowerCase();
