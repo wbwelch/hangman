@@ -57,7 +57,7 @@ $(document).ready(function() {
 			//loop through letters to verify entry is in letter array
 			document.onkeydown = function(input) {
 				for (i = 0; i < hangmanGame.userGuesses.length; i++) {
-					if (lettersGuessed == i) {
+					if (lettersGuessed == hangmanGame.userGuesses[i]) {
 						console.log("hi");//not working, once returns false, moves on; 		how do I get it to cycle every index in array and look for 		any match?
 						//continue
 					} else if (lettersGuessed !== i){
