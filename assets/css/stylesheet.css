@@ -37,7 +37,7 @@ h3 {
 	text-align: center;
 }
 p {
-	font: 300 16px/20px Times, "Times New Roman", serif;
+	font: 700 24px/28px Times, "Times New Roman", serif;
 	color: #4d4848;
 	padding: 10px 5px;
 	line-height: 150%;
@@ -90,6 +90,16 @@ p {
 	margin: 5px auto;
 	width: 200px;
 	}
+#used-letters {
+	text-align: center;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+	display: inline-block;
+}
  .letters {
 	text-align: center;
     width: 30px;
@@ -112,7 +122,7 @@ p {
 	margin-right: auto;
 }
 .letter-box{
-	width: 30px;
+	width: 20px;
     height: 30px;
     border-bottom: solid;
 	border-color: #4d4848;
