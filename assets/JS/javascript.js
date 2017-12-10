@@ -27,14 +27,25 @@ $(document).ready(function() {
 				$("#answer-reveal").append(letterBox);
 			};
 		},
-		
+		//conditional is not accurately passing values through, also decreasing live value for each index in for loop. Need to approach without for loop
 		gameAction: function() {
 			for (var i = 0; i < gameWord.length; i++) {
+				//if last letter is in gameword, print letter to screen in gameword area
 				if (lastLetter == gameWord[i]) {
 					//console.log("hi");
 					console.log("gameword index: " + gameWord[i]);
 					$(".index-" + gameWord[i]).text(lastLetter);
-					};
+					//push lastLetter to userWord
+				};
+				//if last letter is not in gameword, is in hangmanGame.letters, and is not in hangmanGame.userGuesses:
+				if (lastLetter !== gameWord[i]) {
+					//add letter to used letters area
+					$("#used-letters").html("<div>" + lastLetter + "</p>");
+					//-1 from lives
+					--lives;
+					//display new lives count
+					$("#guess-remain").html("<p>" + lives + "</p>");
+				};
 			};
 		}
 	};
@@ -54,7 +65,8 @@ $(document).ready(function() {
 		var wins = hangmanGame.wins
 		var lives = hangmanGame.lives
 
-		$("#wins-display").append("<p>" + wins + "</p>");
+		//write wins and lives to screen
+		$("#wins-display").html("<p>" + wins + "</p>");
 		$("#guess-remain").html("<p>" + lives + "</p>");
 
 		//generate underlines the length of gameWord
@@ -63,7 +75,7 @@ $(document).ready(function() {
 		});
 
 		
-				
+		//on key up, push input to array, call hangmanGame.gameAction, reset last letter variable
 		document.onkeyup = function(input) {
 			var userInput = (input.key).toLowerCase();
 				if (hangmanGame.lives > 0) {
@@ -80,31 +92,27 @@ $(document).ready(function() {
 					
 				};
 			};
+	//if hangmanGame.lives === 0
+		//display you died image
+		//play you died music
+		//display you died message
+	
+	
+	//if userWord.length == gamewod/length
+	//(need to: create userword global variable)
+		//display killer guessed image
+		//play serial killer theme music
+		//display you won message
+		//++wins
+		//print new wins count to screen
 });
 		
 
 
-//if lettersGuessed(last character) === any index of gameword, write letter to word reveal in appropriate position
-
-		//correct guesses, add letters
-
-//if not in game word and not in used letters area, write to used letters area and --		lives
-
-		//incorrect guesses add letters
-
-//else do nothing
-		
 
 
-		//loop until answers-reveal length == gameWord length or lives <1
 
-		//display win or lose message
 
-		//for each win, ++wins
-
-		//change image
-
-		//play song (add play/pause toggle)
 
 		//reset game (clear user array, clear gameword and used letters divs, select a new random gameword, display underlined boxes to gameword area)
 
