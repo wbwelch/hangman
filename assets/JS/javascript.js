@@ -2,24 +2,47 @@
 
 //create object with letter, lives, answer arrays, wins, message
 $(document).ready(function() {
-	
+	var lastLetter = []
 	var hangmanGame = {
 		letters: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
 		lives: 12,
 		wins: 0,
 		userGuesses: [],
-		answers: [ "Freddy", "Jason", "Michael", "Leatherface", "Candyman", "Hannibal", "Norman", "Chucky", "Pennywise", "Cujo", "Pinhead" ],
+		answers: [ "freddy", "jason", "michael", "leatherface", "candyman", "hannibal", "norman", "chucky", "pennywise", "cujo", "pinhead" ],
+	
 		messages: {
 				win: 'Winner, winner, chicken dinner!',
 				lose: 'Death!',
 				character: 'Please enter a valid letter'
 			  },
-
+		
+		
+		
+		wordDisplay: function() {
+			for (i = 0; i < gameWord.length; i++) {
+				//var indexNum = gameWord.length[i];
+				//console.log(indexNum);
+				var letterBox = $("<div class='letter-box index-" + gameWord[i] + "'>");
+				console.log("letter: " + gameWord[i]);
+				$("#answer-reveal").append(letterBox);
+			};
+		},
+		
+		gameAction: function() {
+			for (var i = 0; i < gameWord.length; i++) {
+				if (lastLetter == gameWord[i]) {
+					//console.log("hi");
+					console.log("gameword index: " + gameWord[i]);
+					$(".index-" + gameWord[i]).text(lastLetter);
+					};
+			};
+		}
 	};
 
 		//generate random word
-		var gameWord = hangmanGame.answers[Math.floor(Math.random() * hangmanGame.answers.length)];
-	 	gameWord.split()
+		var	gameWord = hangmanGame.answers[Math.floor(Math.random() * hangmanGame.answers.length)];
+	 	
+	 	
 
 		//console tests
 		console.log("test");
@@ -36,56 +59,30 @@ $(document).ready(function() {
 
 		//generate underlines the length of gameWord
 		$("html").one("keyup", function() {
-			for (i = 0; i < gameWord.length; i++) {
-				var letterBox = $("<div class='letter-box'></div>");
-				console.log(gameWord[i]);
-			//	letterBox.text(gameWord[i]); //use when time to write letters to screen
-				$("#answer-reveal").append(letterBox);
-			//	$(".letter-box").css('color', 'rgba(77, 72, 72, 0');//transparent letters
-
-			}
+			hangmanGame.wordDisplay();
 		});
 
-		var userG = hangmanGame.userGuesses
 		
-		
-		document.onkeypress = function(keyPressed) {
-			var keyPressed = keyPressed || window.event;
-			charCode = keyPressed.keyCode || keyPressed.which;
-			lettersGuessed = String.fromCharCode(charCode);
-		
-		
-			console.log(lettersGuessed)
-			//loop through letters to verify entry is in letter array
-			document.onkeydown = function(input) {
-				for (i = 0; i < hangmanGame.letters.length - 1; i++) {
-					if (lettersGuessed === hangmanGame.letters[i]) {
-						console.log("hi");//how do I make this return true
-						//want to move 'push to user array' here
-					
-					} 
-					else {
-						$("#append-message").remove();
-						$("#message-box").append("<p id='append-message'>" + hangmanGame.messages.character + "</p>");
-						//display character message
-					};
-				};
-			};
-		};
-			
+				
 		document.onkeyup = function(input) {
 			var userInput = (input.key).toLowerCase();
 				if (hangmanGame.lives > 0) {
 					hangmanGame.userGuesses.push(userInput);
 					console.log(hangmanGame.userGuesses);
-					var guessStr = hangmanGame.userGuesses.length;
-					console.log(guessStr);
-					console.log(userG);
-
-				}
+					var guessStrLenght = hangmanGame.userGuesses.length;
+					lastLetter.push(userInput);
+					//console.log("length: " + guessStrLength);
+					//console.log("user array: " + hangmanGame.userGuesses);
+					console.log("Last Letter: " + lastLetter);
+					hangmanGame.gameAction();
+					lastLetter = [];
+					console.log("last letter: " + lastLetter);
+					
+				};
 			};
-		
 });
+		
+
 
 //if lettersGuessed(last character) === any index of gameword, write letter to word reveal in appropriate position
 

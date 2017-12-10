@@ -47,7 +47,9 @@ p {
   Grid
   ========================================
 */
-
+.used-letter {
+	display: inline-block;
+}
 #header-image {
 	width: 960px;
 	position: relative;
